@@ -1,0 +1,24 @@
+#article-page {
+    padding-top: 0.5rem;
+    text-align: left;
+    font-size: 2rem;
+}
+#article-page h2, #article-page h3, #article-page p {
+    padding: 0.5rem 1rem;
+}
+#article-page h4 {
+    font-weight: 400;
+    border-bottom: 1px solid grey;
+    width: fit-content;
+    margin-left: 2rem;
+}
+
+#article-page > img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+#article-page > div {
+    display: flex;
+    justify-content: space-between;
+}
