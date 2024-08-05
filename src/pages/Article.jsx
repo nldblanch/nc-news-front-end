@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getArticleById } from "../api";
 import { Loading } from "../components/Loading";
 import "../css/Article.css";
+import { ArticleComments } from "../components/ArticleComments";
 
 export const Article = () => {
   const { article_id } = useParams();
@@ -29,6 +30,7 @@ export const Article = () => {
         </div>
         <p>{article.votes} Votes</p>
         <p>{article.body}</p>
+        <ArticleComments article_id={article_id} />
       </main>
     );
 };

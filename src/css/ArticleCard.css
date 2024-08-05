@@ -1,9 +1,11 @@
 .article-card {
-    width: 100%;
     font-size: 1.5rem;
     text-align: left;
-    margin: 2rem 0 4rem 0;
+    margin: 2rem 1rem 4rem 1rem;
     color: black;
+    border: 1px solid rgb(203, 203, 203);
+    box-shadow: 0.5rem 0.5rem rgb(203, 203, 203);
+    
 }
 
 .article-card img {
@@ -17,4 +19,5 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+    padding: 0 1rem 1rem 1rem;
 }
