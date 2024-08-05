@@ -5,4 +5,14 @@
   text-align: center;
 }
 
-
+header {
+  background-color: red;
+  width: 100dvw;
+  padding: 1rem;
+  color: white;
+  position: fixed;
+  top: 0;
+}
+header h1 {
+  font-size: 3rem;
+}
