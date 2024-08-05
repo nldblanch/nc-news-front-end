@@ -3,6 +3,7 @@
     font-size: 1.5rem;
     text-align: left;
     margin: 2rem 0 4rem 0;
+    color: black;
 }
 
 .article-card img {
@@ -16,5 +17,4 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    
 }
