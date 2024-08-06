@@ -3,17 +3,19 @@ import { Loading } from "../components/Loading";
 import { getArticles } from "../api";
 import { ArticleCard } from "../components/ArticleCard";
 import "../css/Home.css";
+import { useSearchParams } from "react-router-dom";
 export const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [articles, setArticles] = useState();
-  
+  const [searchParams] = useSearchParams()
   useEffect(() => {
     setIsLoading(true)
-    getArticles().then((articles) => {
+    const topic = (searchParams.get("topic"));
+    getArticles({topic}).then((articles) => {
       setArticles(articles);
       setIsLoading(false);
     });
-  }, []);
+  }, [searchParams]);
   if (isLoading) return <Loading />;
   else
     return (

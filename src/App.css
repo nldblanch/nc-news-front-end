@@ -8,7 +8,7 @@
 header {
   background-color: red;
   width: 100dvw;
-  height: 10dvh;
+  height: 15dvh;
   position: fixed;
   top: 0;
 }
@@ -20,6 +20,29 @@ header h1 {
 #home-link {
   color: white;
 }
- main {
-  margin-top: 10dvh;
+main {
+  margin-top: 15dvh;
  }
+
+ #nav-bar {
+  /* background-color: green; */
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+ }
+ #nav-bar ul {
+  background-color: white;
+  display: flex;
+  padding-left: 2rem;
+  
+}
+
+.nav-element {
+    color: black;
+    margin: 0.5rem 1rem;
+    font-weight: 400;
+    border-bottom: 1px solid grey;
+}
+.nav-element:hover {
+ background-color: rgba(128, 128, 128, 0.301);
+}

@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getArticleById } from "../api";
 import { Loading } from "../components/Loading";
 import "../css/Article.css";
@@ -27,7 +27,9 @@ export const Article = () => {
   else
     return (
       <main id="article-page">
+        <Link to={`/?topic=${article.topic}`}>
         <h4>{article.topic}</h4>
+        </Link>
         <h2>{article.title}</h2>
         <img src={article.article_img_url}></img>
         <div id="author-info">

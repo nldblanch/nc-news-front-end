@@ -7,10 +7,11 @@
     padding: 0.5rem 1rem;
 }
 #article-page h4 {
+    color: black;
     font-weight: 400;
     border-bottom: 1px solid grey;
     width: fit-content;
-    margin-left: 2rem;
+    margin-left: 1rem;
 }
 
 #article-page > img {
