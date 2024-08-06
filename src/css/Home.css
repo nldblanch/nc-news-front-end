@@ -2,5 +2,8 @@
     width: 95dvw;
     margin: 0 auto;
     margin-top: 8rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 

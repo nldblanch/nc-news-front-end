@@ -1,11 +1,15 @@
 .article-card {
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 3dvw, 2rem);
     text-align: left;
     margin: 2rem 1rem 4rem 1rem;
     color: black;
-    border: 1px solid rgb(203, 203, 203);
-    box-shadow: 0.5rem 0.5rem rgb(203, 203, 203);
+    flex-grow: 1;
+    max-width: 300px;
     
+}
+.article-card:hover {
+    outline: 1px solid rgb(203, 203, 203);
+    box-shadow: 0.5rem 0.5rem rgb(203, 203, 203);
 }
 
 .article-card img {
