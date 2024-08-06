@@ -1,0 +1,21 @@
+.votes-bar {
+    height: 5dvh;
+    display: flex;
+    flex-direction: row;
+    /* background-color: red; */
+    align-items: center;
+    justify-content: left;
+}
+
+.votes-count {
+    margin-left: auto;
+}
+
+.votes-icon {
+    height: 100%;
+    margin-left: 1rem;
+    transition: scale 700ms ease;
+}
+.votes-icon:active {
+    scale: 1.5;
+}
