@@ -1,9 +1,27 @@
 #articles {
     width: 95dvw;
     margin: 0 auto;
-    margin-top: 8rem;
+    margin-top: 15dvh;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
+#sort-articles {
+    margin-right: auto;
+    margin-left: 2rem;
+}
+#sort-articles h2 {
+    text-align: left;
+}
+#sort-queries label {
+    padding: 0.5rem;
+
+}
+#sort-queries select {
+    /* background-color: green; */
+    font-size: 1rem;
+    outline: 1px solid black;
+    border-radius: 25px;
+    padding: 0.5rem;
+}
