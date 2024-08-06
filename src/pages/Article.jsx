@@ -5,6 +5,8 @@ import { Loading } from "../components/Loading";
 import "../css/Article.css";
 import { ArticleComments } from "../components/ArticleComments";
 import { VotesBar } from "../components/VotesBar";
+import { PostComment } from "../components/PostComment";
+import { CommentsSection } from "../components/CommentsSection";
 
 export const Article = () => {
   const { article_id } = useParams();
@@ -31,7 +33,7 @@ export const Article = () => {
         </div>
         <VotesBar votes={article.votes} article_id={article_id} />
         <p>{article.body}</p>
-        <ArticleComments article_id={article_id} />
+        <CommentsSection article_id={article_id} />
       </main>
     );
 };

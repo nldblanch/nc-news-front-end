@@ -1,8 +1,7 @@
 import axios from "axios";
 
 const apiClient = axios.create({
-  baseURL: "https://nc-news-bxej.onrender.com/api",
-  timeout: 2000,
+  baseURL: "https://nc-news-bxej.onrender.com/api"
 });
 
 export const getArticles = () => {
@@ -34,5 +33,17 @@ export const postLike = (id, like) => {
   .patch(`/articles/${id}`, {inc_votes: like})
   .then(({data} ) => {
     return data.article
+  })
+}
+
+export const postComment = (id, comment) => {
+  console.log(comment, "comment")
+  return apiClient
+  .post(`/articles/${id}/comments`, comment)
+  .then(({data}) => {
+    return data.comment
+  })
+  .catch((error) => {
+    console.log(error, "error")
   })
 }
