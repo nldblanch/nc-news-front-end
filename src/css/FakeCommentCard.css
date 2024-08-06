@@ -1,0 +1,30 @@
+.fake-comment h5 {
+    padding: 0.5rem 1rem;
+    font-size: 1.75rem;
+}
+.fake-comment p {
+    font-size: 1.75rem;
+}
+
+#comment-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fake-comment {
+    margin: 1rem;
+    border: 1px solid rgb(203, 203, 203);
+    box-shadow: 0.5rem 0.5rem rgb(203, 203, 203);
+    opacity: 0.5;
+}
+
+.fake-comment {
+    position: relative;
+}
+
+.loading-icon {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}

@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { getArticleComments } from "../api";
 import { Loading } from "./Loading";
-import { CommentCard } from "./Comment";
+import { CommentCard } from "./CommentCard";
 
-export const ArticleComments = ({ article_id }) => {
+export const ArticleComments = ({ article_id, comments, setComments }) => {
   const [isLoading, setIsLoading] = useState(true);
-  const [comments, setComments] = useState();
+  
 
     useEffect(() => {
       setIsLoading(true)
@@ -24,6 +24,5 @@ export const ArticleComments = ({ article_id }) => {
           return <CommentCard key={comment.comment_id} comment={comment} />
         })}
     </section>
-
   );
 };
