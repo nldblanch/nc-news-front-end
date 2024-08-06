@@ -9,7 +9,7 @@ export const ArticleCard = ({ article }) => {
       <section className="article-card">
         <img src={article.article_img_url}></img>
         <div className="article-card-info">
-        <h2>{article.title}</h2>
+          <h2>{article.title}</h2>
           <div className="author-info">
             <p>{article.author}</p>
             <p>{date.toDateString()}</p>

@@ -5,9 +5,9 @@ import { PostComment } from "./PostComment";
 export const CommentsSection = () => {
   const [comments, setComments] = useState();
   return (
-    <>
+    <div id="article-comments">
       <PostComment setComments={setComments} />
       <ArticleComments comments={comments} setComments={setComments} />
-    </>
+    </div>
   );
 };

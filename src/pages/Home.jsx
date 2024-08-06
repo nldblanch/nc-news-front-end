@@ -28,7 +28,6 @@ export const Home = () => {
 
   return (
     <>
-      <main id="articles">
         <div id="sort-articles">
           <h2>Showing {totalCount} articles</h2>
           <form id="sort-queries">
@@ -43,6 +42,7 @@ export const Home = () => {
             </select>
           </form>
         </div>
+      <main id="articles">
         <HomePageArticles props={homePageProps} />
       </main>
     </>

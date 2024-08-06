@@ -1,10 +1,11 @@
 .article-card {
-    font-size: clamp(1rem, 3dvw, 2rem);
+    font-size: clamp(1rem, 1dvw, 2rem);
     text-align: left;
-    margin: 2rem 1rem 4rem 1rem;
+    margin-bottom: 4rem;
     color: black;
     flex-grow: 1;
     max-width: 300px;
+    width: clamp(250px, 35vw, 300px)
     
 }
 .article-card:hover {
@@ -24,4 +25,11 @@
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 0 1rem 1rem 1rem;
+}
+.article-card-info h2 {
+    width: 100%;
+}
+.article-info {
+}
+.author-info {
 }
