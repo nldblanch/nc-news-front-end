@@ -37,7 +37,6 @@ export const postLike = (id, like) => {
 }
 
 export const postComment = (id, comment) => {
-  console.log(comment, "comment")
   return apiClient
   .post(`/articles/${id}/comments`, comment)
   .then(({data}) => {
@@ -46,4 +45,11 @@ export const postComment = (id, comment) => {
   .catch((error) => {
     console.log(error, "error")
   })
+}
+
+export const deleteComment = (id) => {
+  return apiClient
+  .delete(`/comments/${id}`)
+  .then()
+  .catch()
 }
