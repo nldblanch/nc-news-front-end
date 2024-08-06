@@ -21,7 +21,7 @@ export const ArticleComments = ({ article_id, comments, setComments }) => {
 
     <section id="comments-section">
         {comments.map((comment) => {
-          return <CommentCard key={comment.comment_id} comment={comment} />
+          return <CommentCard key={comment.comment_id} comment={comment} setComments={setComments} article_id={article_id} />
         })}
     </section>
   );

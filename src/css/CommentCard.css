@@ -15,4 +15,12 @@
     margin: 1rem;
     border: 1px solid rgb(203, 203, 203);
     box-shadow: 0.5rem 0.5rem rgb(203, 203, 203);
+    
+}
+
+#delete-button {
+    height: 2rem;
+    position: absolute;
+    right: 0;
+    transform: translate(-90%, -125%);
 }
