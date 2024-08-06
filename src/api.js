@@ -28,3 +28,11 @@ export const getArticleComments = (id) => {
     return data.comments
   })
 }
+
+export const postLike = (id, like) => {
+  return apiClient
+  .patch(`/articles/${id}`, {inc_votes: like})
+  .then(({data} ) => {
+    return data.article
+  })
+}

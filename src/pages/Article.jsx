@@ -4,6 +4,7 @@ import { getArticleById } from "../api";
 import { Loading } from "../components/Loading";
 import "../css/Article.css";
 import { ArticleComments } from "../components/ArticleComments";
+import { VotesBar } from "../components/VotesBar";
 
 export const Article = () => {
   const { article_id } = useParams();
@@ -24,11 +25,11 @@ export const Article = () => {
         <h4>{article.topic}</h4>
         <h2>{article.title}</h2>
         <img src={article.article_img_url}></img>
-        <div>
+        <div id="author-info">
           <h3>{article.author}</h3>
           <p>on {new Date(`${article.created_at}`).toDateString()}</p>
         </div>
-        <p>{article.votes} Votes</p>
+        <VotesBar votes={article.votes} article_id={article_id} />
         <p>{article.body}</p>
         <ArticleComments article_id={article_id} />
       </main>
