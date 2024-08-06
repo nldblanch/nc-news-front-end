@@ -7,7 +7,6 @@ export const PostComment = ({ article_id, setComments }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [fakeComment, setFakeComment] = useState();
   const handleSubmit = (event) => {
-    setError(null);
     event.preventDefault();
     const comment = event.target[0].value;
     setFakeComment({
