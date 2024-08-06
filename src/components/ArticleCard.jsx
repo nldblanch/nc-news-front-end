@@ -8,8 +8,8 @@ export const ArticleCard = ({ article }) => {
     <Link to={`/articles/${article.article_id}`}>
       <section className="article-card">
         <img src={article.article_img_url}></img>
-        <h2>{article.title}</h2>
         <div className="article-card-info">
+        <h2>{article.title}</h2>
           <div className="author-info">
             <p>{article.author}</p>
             <p>{date.toDateString()}</p>

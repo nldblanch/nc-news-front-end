@@ -9,12 +9,16 @@ header {
   background-color: red;
   width: 100dvw;
   height: 10dvh;
-  color: white;
   position: fixed;
   top: 0;
 }
 header h1 {
   font-size: 4rem;
+  width: fit-content;
+  margin: 0 auto;
+}
+#home-link {
+  color: white;
 }
  main {
   margin-top: 10dvh;
