@@ -9,6 +9,7 @@ import { ArticleContext } from "../contexts/ArticleContext";
 export const CommentCard = ({ comment, setComments }) => {
   const { articleId } = useContext(ArticleContext);
   const [hoverOnDelete, setHoverOnDelete] = useState(TrashCanRegular);
+  const [isCommentDeleted, setIsCommentDeleted] = useState(false)
   const [isLoading, setIsLoading] = useState(false);
   const { loggedInUser } = useContext(UserContext);
 
@@ -21,15 +22,13 @@ export const CommentCard = ({ comment, setComments }) => {
   const handleDelete = () => {
     setIsLoading(true);
     deleteComment(comment.comment_id).then(() => {
-      getArticleComments(articleId).then((comments) => {
-        setComments(comments);
-        setIsLoading(false);
-      });
+      setIsCommentDeleted(true)
+      setIsLoading(false);
     });
   };
   if (isLoading) return <FakeCommentCard comment={comment} />;
-  else
-    return (
+  else if (isCommentDeleted) return <h5 style={{"margin": "1rem"}}>Comment Deleted</h5>
+  else return (
       <div className="comment">
         <div id="comment-info">
           <h5>{comment.author}</h5>
