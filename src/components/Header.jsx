@@ -1,8 +1,19 @@
-import { Link } from "react-router-dom";
-import netlifyIdentity from 'netlify-identity-widget'
+import { Link, useNavigate } from "react-router-dom";
+import netlifyIdentity from "netlify-identity-widget";
+import SquarePenSolid from "../assets/square-pen-solid.svg";
+import "../css/Header.css";
 export const Header = () => {
-  const handleClick = () => {
-    netlifyIdentity.open()
+  const navigate = useNavigate()
+  const handleLogin = () => {
+    netlifyIdentity.open();
+  };
+  const handlePost = () => {
+    const user = netlifyIdentity.currentUser();
+    if (!user) {
+      netlifyIdentity.open()
+    } else {
+      navigate("/post")
+    }
   }
   return (
     <header>
@@ -22,7 +33,17 @@ export const Header = () => {
           <Link to="/?topic=cooking">
             <li className="nav-element">cooking</li>
           </Link>
-          <div className="login" data-netlify-identity-button onClick={handleClick}>Login with Netlify Identity</div>
+          <label id="post-article" htmlFor="post-button">
+            Post an article
+            <input src={SquarePenSolid} id="post-button" type="image" onClick={handlePost} />
+          </label>
+          <div
+            className="login"
+            data-netlify-identity-button
+            onClick={handleLogin}
+          >
+            Login with Netlify Identity
+          </div>
         </ul>
       </nav>
     </header>

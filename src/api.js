@@ -51,3 +51,11 @@ export const deleteComment = (id) => {
   return apiClient
   .delete(`/comments/${id}`)
 }
+
+export const postArticle = (article) => {
+  return apiClient
+  .post('/articles', article)
+  .then(({data}) => {
+    return data.article
+  })
+}
