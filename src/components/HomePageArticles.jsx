@@ -24,7 +24,7 @@ export const HomePageArticles = ({
       // const {status, message} = error.response.data might use this later
       setError({code, message})
     });
-  }, [topic, sort_by, order, page]);
+  }, [topic, sort_by, order, page, limit]);
   if (error) return <ErrorComponent error={error} text={`We couldn't find any articles under the topic '${topic}'. Is it spelled correctly?`} />
   if (isLoading) return <Loading />;
   else
