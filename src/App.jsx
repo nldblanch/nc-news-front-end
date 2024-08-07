@@ -5,6 +5,7 @@ import { Header } from "./components/Header";
 import { Article } from "./pages/Article";
 import { ArticleProvider } from "./contexts/ArticleContext";
 import { NotFoundPage } from "./pages/NotFoundPage";
+import { PostArticlePage } from "./pages/PostArticlePage";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             </ArticleProvider>
           }
         />
+        <Route path="/post" element={<PostArticlePage />} />
         <Route path="/*" element={<NotFoundPage />} />
       </Routes>
     </>
