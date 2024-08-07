@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import TrashCanRegular from "../assets/trash-can-regular.svg";
 import TrashCanSolid from "../assets/trash-can-solid.svg";
 import "../css/CommentCard.css";
-import { UserContext } from "../contexts/User";
+import netlifyIdentity from 'netlify-identity-widget';
 import { deleteComment } from "../api";
 import { FakeCommentCard } from "./FakeCommentCard";
 import {ErrorComponent} from "./ErrorComponent"
@@ -12,8 +12,9 @@ export const CommentCard = ({ comment }) => {
   const [isCommentDeleted, setIsCommentDeleted] = useState(false)
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null)
-  const { loggedInUser } = useContext(UserContext);
+  const user = netlifyIdentity.currentUser();
 
+  const loggedInUser = user === null ? "" : user.user_metadata.full_name
   const hover = () => {
     setHoverOnDelete(TrashCanSolid);
   };
