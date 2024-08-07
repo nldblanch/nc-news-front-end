@@ -3,15 +3,18 @@ import { useState } from "react";
 import "../css/Home.css";
 import { useSearchParams } from "react-router-dom";
 import { HomePageArticles } from "../components/HomePageArticles";
+import { PageSelector } from "../components/PageSelector";
 export const Home = () => {
   const [totalCount, setTotalCount] = useState();
   const [searchParams] = useSearchParams();
   const [sort_by, setSortBy] = useState();
   const [order, setOrder] = useState();
-
+  const [page, setPage] = useState(1)
+  const [limit, setLimit] = useState(10)
   const topic = searchParams.get("topic");
   const handleChange = (event) => {
     const sortQuery = event.target.value;
+    console.log(sortQuery)
     if (sortQuery.includes("date")) {
       setSortBy("created_at");
     }
@@ -24,7 +27,7 @@ export const Home = () => {
       setOrder("desc");
     }
   };
-  const homePageProps = { setTotalCount, topic, sort_by, order };
+  const homePageProps = { setTotalCount, topic, sort_by, order, page, limit };
 
   return (
     <>
@@ -40,6 +43,7 @@ export const Home = () => {
               <option value="votes-descending">Votes (highest)</option>
               <option value="votes-ascending">Votes (lowest)</option>
             </select>
+            <PageSelector page={page} totalCount={totalCount} limit={limit} setPage={setPage} />
           </form>
         </div>
       <main id="articles">

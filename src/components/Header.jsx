@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
-
+import netlifyIdentity from 'netlify-identity-widget'
 export const Header = () => {
+  console.log(netlifyIdentity)
+
+  const handleClick = () => {
+    netlifyIdentity.open()
+  }
   return (
     <header>
       <h1>
@@ -19,6 +24,7 @@ export const Header = () => {
           <Link to="/?topic=cooking">
             <li className="nav-element">cooking</li>
           </Link>
+          <div className="login" data-netlify-identity-button onClick={handleClick}>Login with Netlify Identity</div>
         </ul>
       </nav>
     </header>
