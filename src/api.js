@@ -18,6 +18,9 @@ export const getArticleById = (id) => {
   .then(({data}) => {
     return data.article
   })
+  // .catch((error) => {
+  //   console.log(error, "First error Nathan!")
+  // })
 }
 
 export const getArticleComments = (id) => {
@@ -42,14 +45,9 @@ export const postComment = (id, comment) => {
   .then(({data}) => {
     return data.comment
   })
-  .catch((error) => {
-    console.log(error, "error")
-  })
 }
 
 export const deleteComment = (id) => {
   return apiClient
   .delete(`/comments/${id}`)
-  .then()
-  .catch()
 }

@@ -3,14 +3,15 @@ import TrashCanRegular from "../assets/trash-can-regular.svg";
 import TrashCanSolid from "../assets/trash-can-solid.svg";
 import "../css/CommentCard.css";
 import { UserContext } from "../contexts/User";
-import { deleteComment, getArticleComments } from "../api";
+import { deleteComment } from "../api";
 import { FakeCommentCard } from "./FakeCommentCard";
-import { ArticleContext } from "../contexts/ArticleContext";
-export const CommentCard = ({ comment, setComments }) => {
-  const { articleId } = useContext(ArticleContext);
+import {ErrorComponent} from "./ErrorComponent"
+
+export const CommentCard = ({ comment }) => {
   const [hoverOnDelete, setHoverOnDelete] = useState(TrashCanRegular);
   const [isCommentDeleted, setIsCommentDeleted] = useState(false)
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null)
   const { loggedInUser } = useContext(UserContext);
 
   const hover = () => {
@@ -21,9 +22,14 @@ export const CommentCard = ({ comment, setComments }) => {
   };
   const handleDelete = () => {
     setIsLoading(true);
+    setError(null)
     deleteComment(comment.comment_id).then(() => {
       setIsCommentDeleted(true)
       setIsLoading(false);
+    })
+    .catch(({code, message}) => {
+      setError({code, message})
+      setIsLoading(false)
     });
   };
   if (isLoading) return <FakeCommentCard comment={comment} />;
@@ -38,6 +44,7 @@ export const CommentCard = ({ comment, setComments }) => {
         <div id="comment-votes">
           <p>{comment.votes} Votes</p>
         </div>
+        {error && <ErrorComponent error={error} />}
         {comment.author === loggedInUser && (
           <input
             type="image"
@@ -51,3 +58,4 @@ export const CommentCard = ({ comment, setComments }) => {
       </div>
     );
 };
+

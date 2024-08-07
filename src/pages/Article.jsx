@@ -3,27 +3,31 @@ import { Link, useParams } from "react-router-dom";
 import { getArticleById } from "../api";
 import { Loading } from "../components/Loading";
 import "../css/Article.css";
-import { ArticleComments } from "../components/ArticleComments";
 import { VotesBar } from "../components/VotesBar";
-import { PostComment } from "../components/PostComment";
 import { CommentsSection } from "../components/CommentsSection";
-import { ArticleContext, ArticleProvider } from "../contexts/ArticleContext";
+import { ArticleContext } from "../contexts/ArticleContext";
+import { ErrorComponent } from "../components/ErrorComponent";
 
 export const Article = () => {
   const { article_id } = useParams();
   const [article, setArticle] = useState();
-  const { articleId, setArticleId } = useContext(ArticleContext);
+  const { setArticleId } = useContext(ArticleContext);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
   useEffect(() => {
     setIsLoading(true);
-    getArticleById(article_id).then((article) => {
+    getArticleById(article_id)
+    .then((article) => {
       setArticle(article);
       setArticleId(article_id);
       setIsLoading(false);
+    })
+    .catch(({message, code}) => {
+      setError({code, message})
     });
   }, []);
-
-  if (isLoading) return <Loading />;
+  if (error) return <ErrorComponent error={error} text={"Looks like this article doesn't exist yet."} />
+  else if (isLoading) return <Loading />;
   else
     return (
       <main id="article-page">
