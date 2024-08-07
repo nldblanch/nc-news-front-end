@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 import netlifyIdentity from 'netlify-identity-widget'
 export const Header = () => {
-  console.log(netlifyIdentity)
-
   const handleClick = () => {
     netlifyIdentity.open()
   }
