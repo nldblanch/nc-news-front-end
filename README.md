@@ -1,8 +1,60 @@
-# React + Vite
+# Northcoders News API
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## View this project online
+You can view the hosted website [here](https://nathans-nc-news.netlify.app)! It's hosted for free, so please be patient if it takes slightly longer to load.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Description
+Northcoders News is a Reddit clone created in JavaScript. It's made using React and receives data from an api that I built. That can be viewed on [GitHub](https://github.com/nldblanch/NC-News) with full instructions on setting it up on your own machine.
+
+## Getting Started
+
+These instructions will get you a version of your own news site running. 
+
+### Prerequisites
+
+You will need Node.js v21.7.3 (or later) installed on your computer. 
+
+### Cloning the repo
+
+In your terminal, run the following command:
+```
+git clone https://github.com/nldblanch/nc-news-front-end.git
+```
+
+This will copy the repo and its contents to the directory you run the command from.
+
+### Dependencies
+
+The site relies on axios, lottie, react, and react router. There are several extra developer dependencies for testing.
+
+### Installing
+
+They can be easily installed by running this command in your terminal:
+```
+npm install
+```
+You should now see a new directory in your local repository called node_modules. 
+
+### Executing program
+
+There is only one script you should need to test the site:
+
+```
+npm run dev
+```
+_Click on the web link that appears in your terminal. It will look something like http://localhost:5173/._
+
+---
+
+## Deploying your own website
+
+There are many ways to host a website, but I used Netlify. Create yourself an account and connect your GitHub profile.
+
+Once you have done that, navigate to the Sites tab and click Add new site. Import an existing project - your GitHub project you just created! Everything will be setup already - most importantly though, check the branch is 'main' and the build command is ```npm run build```. 
+
+Deploy your project and wait for it to finish building. That's it! You're done. You have your own site, and you can redeploy it any time you make changes. Alternatively, you can modify the settings of your Netlify site to deploy every time you push changes to your GitHub Main branch. If you do, make sure you make use of branching in Git to avoid pushing anything that could break your live site!
+
+## Acknowledgements
+
+This portfolio project was created as part of a Digital Skills Bootcamp in Software Engineering provided by [Northcoders](https://northcoders.com/).
