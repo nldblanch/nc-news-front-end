@@ -3,7 +3,7 @@
     text-align: left;
     font-size: 2rem;
 }
-#article-page h2, #article-page h3, #article-page p {
+#article-page h2, #article-page h3, #article-page p, #article-page h5 {
     padding: 0.5rem 1rem;
 }
 #article-content h4 {

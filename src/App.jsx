@@ -4,6 +4,7 @@ import { Home } from "./pages/Home";
 import { Header } from "./components/Header";
 import { Article } from "./pages/Article";
 import { ArticleProvider } from "./contexts/ArticleContext";
+import { NotFoundPage } from "./pages/NotFoundPage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             </ArticleProvider>
           }
         />
+        <Route path="/*" element={<NotFoundPage />} />
       </Routes>
     </>
   );

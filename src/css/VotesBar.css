@@ -13,6 +13,7 @@
 
 .votes-icon {
     height: 100%;
+    max-height: 4rem;
     margin-left: 1rem;
     transition: scale 700ms ease;
 }
