@@ -55,6 +55,24 @@ Once you have done that, navigate to the Sites tab and click Add new site. Impor
 
 Deploy your project and wait for it to finish building. That's it! You're done. You have your own site, and you can redeploy it any time you make changes. Alternatively, you can modify the settings of your Netlify site to deploy every time you push changes to your GitHub Main branch. If you do, make sure you make use of branching in Git to avoid pushing anything that could break your live site!
 
+## Netlify Identity
+
+You may wish to setup your own user login system - the current database only has 6 users and posting articles or comments requires the user to exist already. I have not setup any way to add new users, but have used existing ones instead. 
+
+I used netlifyIdentity to authorise users - if you wish to sign up as one of the users so that you can post articles and comments, click the button in the top right corner that says ```Login with Netlify Identity```. You can choose these usernames from the database:
+- jessjelly
+- weegembump
+- cooljmessy
+- happyamy2016
+- grumpy19
+- tickle122
+
+_This is case sensitive so be sure to match the username character for character._
+
+Verify your email address and you will be able to comment on articles and post your own! You can manage users from the Netlify integration.
+
+The post articles feature takes an image url because I have not set up file attachments yet. Unsplash is a great place to get free image urls!
+
 ## Acknowledgements
 
 This portfolio project was created as part of a Digital Skills Bootcamp in Software Engineering provided by [Northcoders](https://northcoders.com/).
