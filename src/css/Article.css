@@ -6,7 +6,7 @@
 #article-page h2, #article-page h3, #article-page p {
     padding: 0.5rem 1rem;
 }
-#article-page h4 {
+#article-content h4 {
     color: black;
     font-weight: 400;
     border-bottom: 1px solid grey;
@@ -14,7 +14,7 @@
     margin-left: 1rem;
 }
 
-#article-page > img {
+#article-content > img {
     width: 100%;
     aspect-ratio: 16/9;
     object-fit: cover;
@@ -22,4 +22,36 @@
 #author-info {
     display: flex;
     justify-content: space-between;
+}
+
+@media screen and (min-width: 800px) {
+    #article-page {
+        display: flex;
+        flex-direction: row;
+        /* flex-wrap: wrap; */
+        /* align-items: left;
+        max-width: 800px; */
+    }
+    #article-content {
+        max-width: 60dvw;
+        /* background-color: blue; */
+    }
+    #article-content > img {
+        max-width: 60dvw;
+        aspect-ratio: 16/9;
+        object-fit: cover;
+    }
+    #article-comments {
+        /* background-color: green; */
+        flex-grow: 1;
+        max-width: 40dvw;
+        margin-top: 20dvh;
+        padding: 1rem;
+    }
+    #comment-box {
+        max-width: 35dvw;
+    }
+    .comment p {
+        font-size: 5px;
+    }
 }

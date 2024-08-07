@@ -27,6 +27,7 @@ export const Article = () => {
   else
     return (
       <main id="article-page">
+        <div id="article-content">
         <Link to={`/?topic=${article.topic}`}>
         <h4>{article.topic}</h4>
         </Link>
@@ -38,6 +39,7 @@ export const Article = () => {
         </div>
         <VotesBar votes={article.votes} />
         <p>{article.body}</p>
+        </div>
         <CommentsSection />
       </main>
     );

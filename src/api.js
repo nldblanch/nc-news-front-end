@@ -4,11 +4,11 @@ const apiClient = axios.create({
   baseURL: "https://nc-news-bxej.onrender.com/api"
 });
 
-export const getArticles = ({topic}) => {
+export const getArticles = ({topic, sort_by, order}) => {
   return apiClient
-  .get("/articles", {params: {topic}})
+  .get("/articles", {params: {topic: topic, sort_by: sort_by, order: order}})
   .then(({data}) => {
-    return data.articles
+    return data
   })
 }
 

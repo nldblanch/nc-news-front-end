@@ -1,9 +1,9 @@
 .comment h5 {
     padding: 0.5rem 1rem;
-    font-size: 1.75rem;
+    
 }
-.comment p {
-    font-size: 1.75rem;
+.comment p, .comment h5 {
+    font-size: clamp(1rem, 2dvh, 1.5rem);
 }
 
 #comment-info {
@@ -15,12 +15,13 @@
     margin: 1rem;
     border: 1px solid rgb(203, 203, 203);
     box-shadow: 0.5rem 0.5rem rgb(203, 203, 203);
-    
+    position: relative;
 }
 
 #delete-button {
     height: 2rem;
     position: absolute;
     right: 0;
-    transform: translate(-90%, -125%);
+    bottom: 0;
+    padding: 0.25rem;
 }
