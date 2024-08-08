@@ -1,4 +1,4 @@
-.article-card {
+/* .article-card {
     font-size: clamp(1rem, 1dvw, 2rem);
     text-align: left;
     margin-bottom: 4rem;
@@ -7,13 +7,13 @@
     max-width: 300px;
     width: clamp(250px, 35vw, 300px)
     
-}
-.article-card:hover {
+} */
+/* .article-card:hover {
     outline: 1px solid rgb(203, 203, 203);
     box-shadow: 0.5rem 0.5rem rgb(203, 203, 203);
-}
+} */
 
-.article-card img {
+/* .article-card img {
     object-fit: cover;
     width: 100%;
     aspect-ratio: 1/1;
@@ -28,8 +28,4 @@
 }
 .article-card-info h2 {
     width: 100%;
-}
-.article-info {
-}
-.author-info {
-}
+} */

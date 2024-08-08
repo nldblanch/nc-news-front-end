@@ -19,7 +19,7 @@ export const ArticleComments = ({ comments, setComments }) => {
   if (isLoading) return <Loading />;
   else
     return (
-      <section id="comments-section">
+      <section>
         {comments.map((comment) => {
           return (
             <CommentCard

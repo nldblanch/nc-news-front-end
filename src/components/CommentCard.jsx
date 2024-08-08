@@ -34,22 +34,22 @@ export const CommentCard = ({ comment }) => {
     });
   };
   if (isLoading) return <FakeCommentCard comment={comment} />;
-  else if (isCommentDeleted) return <h5 style={{"margin": "1rem"}}>Comment Deleted</h5>
+  else if (isCommentDeleted) return <h5 className="text-left m-2"><em>Comment Deleted</em></h5>
   else return (
-      <div className="comment">
-        <div id="comment-info">
-          <h5>{comment.author}</h5>
+      <div className="outline outline-1 outline-slate-200 mx-2 my-4 p-2 shadow-lg relative z-0">
+        <div className="flex justify-between">
+          <h5 className="text-lg font-medium">{comment.author}</h5>
           <p>on {new Date(`${comment.created_at}`).toDateString()}</p>
         </div>
-        <p>{comment.body}</p>
-        <div id="comment-votes">
-          <p>{comment.votes} Votes</p>
+        <p className="text-left">{comment.body}</p>
+        <div className="w-full">
+          <p className="text-left">{comment.votes} Votes</p>
         </div>
         {error && <ErrorComponent error={error} />}
         {comment.author === loggedInUser && (
           <input
             type="image"
-            id="delete-button"
+            className="w-4 absolute bottom-0 right-0 -translate-x-1/2 -translate-y-1/2"
             onMouseOver={hover}
             onMouseLeave={notHover}
             onClick={handleDelete}

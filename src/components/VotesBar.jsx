@@ -54,18 +54,18 @@ export const VotesBar = ({ votes }) => {
 
   return (
     <>
-      <div className="votes-bar">
+      <div className="h-8 w-full flex px-2 mt-2 sm:px-4">
         <img
-          className="votes-icon"
+          className="h-full pr-4 active:scale-125"
           onClick={handleThumbsUp}
           src={thumbsUpChecked ? ThumbsUpSolid : ThumbsUpRegular}
         ></img>
         <img
-          className="votes-icon"
+          className="h-full active:scale-125"
           onClick={handleThumbsDown}
           src={thumbsDownChecked ? ThumbsDownSolid : ThumbsDownRegular}
         ></img>
-        <p className="votes-count">{votes + incrementedVotes} Votes</p>
+        <p className="ml-auto">{votes + incrementedVotes} Votes</p>
       </div>
       {error && (
         <p style={{ color: "red", fontSize: "1rem" }}>

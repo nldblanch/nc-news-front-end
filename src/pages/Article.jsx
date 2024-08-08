@@ -30,19 +30,19 @@ export const Article = () => {
   else if (isLoading) return <Loading />;
   else
     return (
-      <main id="article-page">
-        <div id="article-content">
+      <main className="mt-36 lg:flex" >
+        <div className="w-full lg:w-7/12 2xl:" >
         <Link to={`/?topic=${article.topic}`}>
-        <h4>{article.topic}</h4>
+        <h4 className="text-left pl-2 text-xl font-medium">{article.topic}</h4>
         </Link>
-        <h2>{article.title}</h2>
-        <img src={article.article_img_url}></img>
-        <div id="author-info">
-          <h3>{article.author}</h3>
+        <h2 className="text-3xl font-bold mb-2 ml-2 text-left">{article.title}</h2>
+        <img className="w-full aspect-square object-cover mb-2 sm:aspect-video lg:aspect-square xl:aspect-video " src={article.article_img_url}></img>
+        <div className="flex justify-between px-2 sm:px-4">
+          <h3 className="text-xl font-medium">{article.author}</h3>
           <p>on {new Date(`${article.created_at}`).toDateString()}</p>
         </div>
         <VotesBar votes={article.votes} />
-        <p>{article.body}</p>
+        <p className="text-left p-2 sm:text-xl sm:px-4">{article.body}</p>
         </div>
         <CommentsSection />
       </main>

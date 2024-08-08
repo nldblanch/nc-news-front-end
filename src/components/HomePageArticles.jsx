@@ -29,10 +29,10 @@ export const HomePageArticles = ({
   if (isLoading) return <Loading />;
   else
     return (
-      <>
+      <main className="flex flex-row flex-wrap">
         {articles.map((article) => {
           return <ArticleCard key={article.article_id} article={article} />;
         })}
-      </>
+      </main>
     );
 };

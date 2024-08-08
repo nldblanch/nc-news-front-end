@@ -1,4 +1,4 @@
-#article-page {
+/* #article-page {
     padding-top: 0.5rem;
     text-align: left;
     font-size: 2rem;
@@ -22,19 +22,16 @@
 #author-info {
     display: flex;
     justify-content: space-between;
-}
+} */
 
-@media screen and (min-width: 800px) {
+/* @media screen and (min-width: 800px) {
     #article-page {
         display: flex;
         flex-direction: row;
-        /* flex-wrap: wrap; */
-        /* align-items: left;
-        max-width: 800px; */
+       
     }
     #article-content {
         max-width: 60dvw;
-        /* background-color: blue; */
     }
     #article-content > img {
         max-width: 60dvw;
@@ -42,7 +39,6 @@
         object-fit: cover;
     }
     #article-comments {
-        /* background-color: green; */
         flex-grow: 1;
         max-width: 40dvw;
         margin-top: 20dvh;
@@ -54,4 +50,4 @@
     .comment p {
         font-size: 5px;
     }
-}
+} */
