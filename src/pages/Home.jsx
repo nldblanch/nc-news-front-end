@@ -31,12 +31,20 @@ export const Home = () => {
 
   return (
     <>
-      <div id="sort-articles">
-        <h2>Showing {totalCount} articles</h2>
-        <form id="sort-queries">
-          <div id="sort-query-selector">
-            <label htmlFor="sort-by-drop-down">Sort these articles by</label>
-            <select onChange={handleChange} id="sort-by-drop-down">
+      <div className="mt-36 w-dvw sm:px-4">
+        <h2 className="text-center sm:text-left text-2xl sm:text-3xl lg:text-4xl font-medium mb-4">
+          Showing {totalCount} articles {topic && <span>from <strong>{topic}</strong></span>}
+        </h2>
+        <form className="flex flex-col text-center w-full sm:flex-row sm:justify-between">
+          <div>
+            <label className="pr-2 lg:text-xl" htmlFor="sort-by-drop-down">
+              Sort these<span className="max-sm:hidden">&nbsp;articles by</span>
+            </label>
+            <select
+              className="rounded px-2 text-left border border-solid border-slate-400"
+              onChange={handleChange}
+              id="sort-by-drop-down"
+            >
               <option value="date-descending">Date (newest first)</option>
               <option value="date-ascending">Date (oldest first)</option>
               <option value="comments-descending">Comments (most first)</option>
@@ -45,20 +53,20 @@ export const Home = () => {
               <option value="votes-ascending">Votes (lowest)</option>
             </select>
           </div>
-          <div className="pagination">
-          <Limiter setLimit={setLimit} />
-          <PageSelector
-            page={page}
-            totalCount={totalCount}
-            limit={limit}
-            setPage={setPage}
+          <div className="md:flex md:flex-row">
+            <Limiter setLimit={setLimit} />
+            <PageSelector
+              page={page}
+              totalCount={totalCount}
+              limit={limit}
+              setPage={setPage}
             />
-            </div>
+          </div>
         </form>
       </div>
-      <main id="articles">
+     
         <HomePageArticles props={homePageProps} />
-      </main>
+      
     </>
   );
 };

@@ -1,8 +1,7 @@
-.votes-bar {
+/* .votes-bar {
     height: 5dvh;
     display: flex;
     flex-direction: row;
-    /* background-color: red; */
     align-items: center;
     justify-content: left;
 }
@@ -19,4 +18,4 @@
 }
 .votes-icon:active {
     scale: 1.5;
-}
+} */

@@ -3,46 +3,53 @@ import netlifyIdentity from "netlify-identity-widget";
 import SquarePenSolid from "../assets/square-pen-solid.svg";
 import "../css/Header.css";
 export const Header = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const handleLogin = () => {
     netlifyIdentity.open();
   };
   const handlePost = () => {
     const user = netlifyIdentity.currentUser();
     if (!user) {
-      netlifyIdentity.open()
+      netlifyIdentity.open();
     } else {
-      navigate("/post")
+      navigate("/post");
     }
-  }
+  };
   return (
-    <header>
-      <h1>
-        <Link to="/" id="home-link">
-          NC NEWS
-        </Link>
-      </h1>
-      <nav id="nav-bar">
-        <ul>
-          <Link to="/?topic=coding">
-            <li className="nav-element">coding</li>
+    <header className=" w-full h-36 fixed top-0 z-40">
+      <div className="w-full h-24 bg-red-600 flex flex-col justify-center">
+        <h1 className="text-6xl text-white font-bold">
+          <Link to="/">
+            NC NEWS
           </Link>
-          <Link to="/?topic=football">
-            <li className="nav-element">football</li>
+        </h1>
+      </div>
+      <nav className="pt-0" >
+        <ul className="bg-white flex gap-4 px-4 py-2">
+          <Link className="my-auto" to="/?topic=coding">
+            <li className="border-solid border-b border-slate-500 hover:bg-slate-200 max-sm:text-sm">coding</li>
           </Link>
-          <Link to="/?topic=cooking">
-            <li className="nav-element">cooking</li>
+          <Link className="my-auto" to="/?topic=football">
+            <li className="border-solid border-b border-slate-500 hover:bg-slate-200 max-sm:text-sm">football</li>
           </Link>
-          <label id="post-article" htmlFor="post-button">
-            Post an article
-            <input src={SquarePenSolid} id="post-button" type="image" onClick={handlePost} />
+          <Link className="my-auto" to="/?topic=cooking">
+            <li className="border-solid border-b border-slate-500 hover:bg-slate-200 max-sm:text-sm">cooking</li>
+          </Link>
+          <label onClick={handlePost} className="ml-auto mr-4 flex items-center hover:bg-slate-200 " htmlFor="post-button">
+            Post<span className="hidden md:block">&nbsp;an article</span>
+            <input
+              id="post-button"
+              src={SquarePenSolid}
+              className="h-8 ml-2"
+              type="image"
+            />
           </label>
           <div
-            className="login"
+            className="flex items-center hover:bg-slate-200"
             data-netlify-identity-button
             onClick={handleLogin}
           >
-            Login with Netlify Identity
+            Login<span className="hidden md:block">&nbsp;with Netlify Identity</span>
           </div>
         </ul>
       </nav>

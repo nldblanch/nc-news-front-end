@@ -48,10 +48,10 @@ export const PostComment = ({ setComments }) => {
 
   return (
     <>
-    <div>
-      <form id="comment-box" onSubmit={handleSubmit}>
-        <input placeholder="comment" type="text" required/>
-        <button type="submit">Post</button>
+    <div className="flex flex-col items-center p-2">
+      <form id="comment-box" className="w-full outline outline-1 outline-slate-400 flex justify-between rounded" onSubmit={handleSubmit}>
+        <input className="ml-2" placeholder="comment" type="text" required/>
+        <button className="rounded bg-slate-200 active:bg-slate-300 py-2 px-4 outline outline-1 outline-slate-400" type="submit">Post</button>
       </form>
       {isLoading && <FakeCommentCard comment={fakeComment} />}
       {error && <ErrorComponent error={error} />}
