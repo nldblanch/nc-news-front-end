@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import ArrowRightSolid from "../assets/arrow-right-solid.svg";
 
 export const ErrorComponent = ({ error, text }) => {
+  console.log(error, text);
+  
   return (
     <>
       {error.code === "ERR_NETWORK" && (
@@ -14,7 +16,7 @@ export const ErrorComponent = ({ error, text }) => {
         </div>
       )}
       {error.code === "ERR_BAD_REQUEST" && (
-        <main className="mt-16 w-full sm:w-1/2 mx-auto flex flex-col items-center">
+        <main className="mt-36 w-full sm:w-1/2 mx-auto flex flex-col items-center">
           <h2 className="text-5xl sm:text-7xl">404</h2>
           <p className="py-2 px-8 text-lg sm:text-2xl">{text}</p>
           <div className="p-2 w-fit flex justify-center bg-slate-200 rounded active:bg-slate-300 mt-8">
