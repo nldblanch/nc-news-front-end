@@ -2,17 +2,17 @@ import ThumbsUpRegular from "../assets/thumbs-up-regular.svg";
 import ThumbsDownRegular from "../assets/thumbs-down-regular.svg";
 import ThumbsUpSolid from "../assets/thumbs-up-solid.svg";
 import ThumbsDownSolid from "../assets/thumbs-down-solid.svg";
-import { useContext, useEffect, useState } from "react";
-import { postLike } from "../api";
-import { ArticleContext } from "../contexts/ArticleContext";
-export const VotesBar = ({ votes }) => {
-  const { articleId } = useContext(ArticleContext);
+import { useEffect, useState } from "react";
+import { postLikeToComment } from "../api";
+export const VotesBarComments = ({ votes, commentId }) => {
+  
   const [thumbsUpChecked, setThumbsUpChecked] = useState(false);
   const [thumbsDownChecked, setThumbsDownChecked] = useState(false);
   const [incrementedVotes, setIncrementedVotes] = useState(0);
   const [error, setError] = useState(null);
   const [initialState, setInitialState] = useState();
   const [currentIncrement, setCurrentIncrement] = useState(0)
+
   const handleThumbsUp = () => {
     setInitialState({ like: thumbsUpChecked, dislike: thumbsDownChecked });
     setThumbsUpChecked((prev) => !prev);
@@ -42,21 +42,18 @@ export const VotesBar = ({ votes }) => {
     setIncrementedVotes((votes) => votes + increment);
     setCurrentIncrement(increment)
   };
-
   useEffect(() => {
     setError(null);
-    postLike(articleId, currentIncrement)
-    .catch((err) => {
+    postLikeToComment(commentId, currentIncrement).catch((err) => {
       setThumbsUpChecked(initialState.like);
       setThumbsDownChecked(initialState.dislike);
       setIncrementedVotes((currentVotes) => currentVotes - currentIncrement);
       setError(err);
     });
   }, [initialState])
-
   return (
     <>
-      <div className="h-8 w-full flex px-2 mt-2 sm:px-4">
+      <div className="h-8 w-full flex px-2 mt-2 sm:px-4 items-center">
         <img
           className="h-full pr-4 active:scale-125"
           onClick={handleThumbsUp}
@@ -67,10 +64,10 @@ export const VotesBar = ({ votes }) => {
           onClick={handleThumbsDown}
           src={thumbsDownChecked ? ThumbsDownSolid : ThumbsDownRegular}
         ></img>
-        <p className="ml-auto">{votes + incrementedVotes} Votes</p>
+        <p className="ml-4">{votes + incrementedVotes} Votes</p>
       </div>
       {error && (
-        <p className="text-red-600 text-sm">
+        <p className="text-red-600 text-sm" >
           Seems like that didn't work. Please try again in a few moments.
         </p>
       )}

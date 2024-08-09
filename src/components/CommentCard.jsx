@@ -5,6 +5,7 @@ import netlifyIdentity from "netlify-identity-widget";
 import { deleteComment, getUserByUsername } from "../api";
 import { FakeCommentCard } from "./FakeCommentCard";
 import { ErrorComponent } from "./ErrorComponent";
+import {VotesBarComments} from "./VotesBarComments"
 
 export const CommentCard = ({ comment }) => {
   const [hoverOnDelete, setHoverOnDelete] = useState(TrashCanRegular);
@@ -55,7 +56,7 @@ export const CommentCard = ({ comment }) => {
         </div>
         <p className="text-left">{comment.body}</p>
         <div className="w-full">
-          <p className="text-left">{comment.votes} Votes</p>
+          <VotesBarComments votes={comment.votes} commentId={comment.comment_id} />
         </div>
         {error && <ErrorComponent error={error} />}
         {comment.author === loggedInUser && (

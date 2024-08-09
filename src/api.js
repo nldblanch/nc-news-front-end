@@ -75,3 +75,11 @@ export const getUserByUsername = (username) => {
     return data.user
   })
 }
+
+export const postLikeToComment = (id, like) => {
+  return apiClient
+  .patch(`/comments/${id}`, {inc_votes: like})
+  .then(({data} ) => {
+    return data.comment
+  })
+}
