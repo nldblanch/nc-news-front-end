@@ -17,6 +17,9 @@ export const Home = () => {
     if (sortQuery.includes("date")) {
       setSortBy("created_at");
     }
+    if (sortQuery.includes("comments")) {
+      setSortBy("comment_count");
+    }
     if (sortQuery.includes("votes")) {
       setSortBy("votes");
     }
