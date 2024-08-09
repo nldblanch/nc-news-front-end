@@ -17,8 +17,7 @@ function App() {
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
-
+        <Route exact path="/" element={<Home />} />
         <Route
           path="/articles/:article_id"
           element={
@@ -26,9 +25,9 @@ function App() {
               <Article />
             </ArticleProvider>
           }
-        />
+          />
         <Route path="/post" element={<PostArticlePage />} />
-        <Route path="/*" element={<NotFoundPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>
   );
