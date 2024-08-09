@@ -14,7 +14,7 @@ export const PostComment = ({ setComments }) => {
   
   // const { loggedInUser } = useContext(UserContext);
   const handleSubmit = (event) => {
-    const user = netlifyIdentity.currentUser();
+    const user = netlifyIdentity.currentUser();    
     event.preventDefault();
     if (user === null) {
       netlifyIdentity.open();
@@ -29,7 +29,7 @@ export const PostComment = ({ setComments }) => {
       setError(null);
       setIsLoading(true);
       postComment(articleId, {
-        username: user.user_metadata.full_name,
+        username: user.email,
         body: comment,
       })
         .then((comment) => {
