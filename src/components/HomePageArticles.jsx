@@ -3,9 +3,19 @@ import { getArticles } from "../api";
 import { Loading } from "./Loading";
 import { ArticleCard } from "./ArticleCard";
 import { ErrorComponent } from "./ErrorComponent";
+import { PageSelector } from "./PageSelector";
 
 export const HomePageArticles = ({
-  props: { topic, sort_by, order, setTotalCount, page, limit },
+  props: {
+    topic,
+    sort_by,
+    order,
+    totalCount,
+    setTotalCount,
+    page,
+    setPage,
+    limit,
+  },
 }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [articles, setArticles] = useState();
@@ -39,6 +49,15 @@ export const HomePageArticles = ({
         {articles.map((article) => {
           return <ArticleCard key={article.article_id} article={article} />;
         })}
+        <div className="mx-auto mb-6">
+
+        <PageSelector
+          page={page}
+          totalCount={totalCount}
+          limit={limit}
+          setPage={setPage}
+          />
+        </div>
       </main>
     );
 };

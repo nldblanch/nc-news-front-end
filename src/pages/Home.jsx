@@ -26,7 +26,16 @@ export const Home = () => {
       setOrder("desc");
     }
   };
-  const homePageProps = { setTotalCount, topic, sort_by, order, page, limit };
+  const homePageProps = {
+    totalCount,
+    setTotalCount,
+    topic,
+    sort_by,
+    order,
+    page,
+    setPage,
+    limit,
+  };
 
   return (
     <>

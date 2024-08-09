@@ -13,10 +13,10 @@ export const PageSelector = ({ setPage, limit, totalCount, page }) => {
         {pageNumbers.map((pageNumber) => {
           return (
             <li
-              className="w-6 rounded-3xl aspect-square"
+              className="w-6 rounded-3xl aspect-square hover:bg-slate-200 active:bg-slate-300"
               style={
                 pageNumber === page
-                  ? { backgroundColor: "rgba(128, 128, 128, 0.301)" }
+                  ? { backgroundColor: "rgba(226, 232, 240)" }
                   : {}
               }
               key={pageNumber}
