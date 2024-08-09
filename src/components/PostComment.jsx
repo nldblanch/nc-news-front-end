@@ -55,7 +55,7 @@ export const PostComment = ({ setComments }) => {
           className="w-full outline outline-1 outline-slate-400 flex justify-between rounded"
           onSubmit={handleSubmit}
         >
-          <input className="ml-2" placeholder="comment" type="text" required />
+          <input className="mx-2 w-full" placeholder="comment" type="text" required />
           <button
             className="rounded bg-slate-200 active:bg-slate-300 py-2 px-4 outline outline-1 outline-slate-400"
             type="submit"
