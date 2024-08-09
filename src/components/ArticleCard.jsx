@@ -1,8 +1,16 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { getUserByUsername } from "../api";
 
 export const ArticleCard = ({ article }) => {
   const date = new Date(`${article.created_at}`);
-
+  const [articleAuthor, setArticleAuthor] = useState()
+  useEffect(() => {
+    getUserByUsername(article.author)
+    .then((user) => {
+      setArticleAuthor(user.name)
+    })
+  }, [])
   return (
     <Link
       className="w-full sm:w-1/2 lg:w-1/3 2xl:w-1/4"
@@ -18,7 +26,7 @@ export const ArticleCard = ({ article }) => {
             {article.title}
           </h2>
           <div className="text-left">
-            <p className="text-sm">{article.author}</p>
+            <p className="text-sm">{articleAuthor}</p>
             <p className="text-sm">{date.toDateString()}</p>
           </div>
           <div className="text-right grow mt-auto">

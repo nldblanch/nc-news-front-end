@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { getArticleById } from "../api";
+import { getArticleById, getUserByUsername } from "../api";
 import { Loading } from "../components/Loading";
 import { VotesBar } from "../components/VotesBar";
 import { CommentsSection } from "../components/CommentsSection";
@@ -13,12 +13,17 @@ export const Article = () => {
   const { setArticleId } = useContext(ArticleContext);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [articleAuthor, setArticleAuthor] = useState()
   useEffect(() => {
     setIsLoading(true);
     getArticleById(article_id)
       .then((article) => {
         setArticle(article);
         setArticleId(article_id);
+        return getUserByUsername(article.author)
+      })
+      .then((user) => {
+        setArticleAuthor(user.name)
         setIsLoading(false);
       })
       .catch(({ message, code }) => {
@@ -50,7 +55,7 @@ export const Article = () => {
             src={article.article_img_url}
           ></img>
           <div className="flex justify-between px-2 sm:px-4">
-            <h3 className="text-xl font-medium">{article.author}</h3>
+            <h3 className="text-xl font-medium">{articleAuthor}</h3>
             <p>on {new Date(`${article.created_at}`).toDateString()}</p>
           </div>
           <VotesBar votes={article.votes} />

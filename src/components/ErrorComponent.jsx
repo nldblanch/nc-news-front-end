@@ -2,8 +2,6 @@ import { Link } from "react-router-dom";
 import ArrowRightSolid from "../assets/arrow-right-solid.svg";
 
 export const ErrorComponent = ({ error, text }) => {
-  console.log(error, text);
-  
   return (
     <>
       {error.code === "ERR_NETWORK" && (

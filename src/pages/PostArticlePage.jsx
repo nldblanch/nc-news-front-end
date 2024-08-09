@@ -13,7 +13,7 @@ export const PostArticlePage = () => {
     const topic = event.target[1].value;
     const article_img_url = event.target[2].value;
     const body = event.target[3].value;
-    const author = netlifyIdentity.currentUser().user_metadata.full_name;
+    const author = netlifyIdentity.currentUser().email;
     postArticle({
       author,
       title,
