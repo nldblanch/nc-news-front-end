@@ -5,23 +5,26 @@ import { FakeCommentCard } from "./FakeCommentCard";
 import { ArticleContext } from "../contexts/ArticleContext";
 import { ErrorComponent } from "./ErrorComponent";
 import netlifyIdentity from "netlify-identity-widget";
+import { UserContext } from "../contexts/User";
 
 export const PostComment = ({ setComments }) => {
   const { articleId } = useContext(ArticleContext);
   const [isLoading, setIsLoading] = useState(false);
   const [fakeComment, setFakeComment] = useState();
   const [error, setError] = useState(null);
-  
-  // const { loggedInUser } = useContext(UserContext);
+  const {anonymousUser} = useContext(UserContext)
+  const [loggedInUser, setLoggedInUser] = useState()
   const handleSubmit = (event) => {
     const user = netlifyIdentity.currentUser();    
     event.preventDefault();
     if (user === null) {
-      netlifyIdentity.open();
+      setLoggedInUser(anonymousUser)
     } else {
+      setLoggedInUser({email: user.email, name: user.user_metadata.full_name})
+    }
       const comment = event.target[0].value;
       setFakeComment({
-        author: user.user_metadata.full_name,
+        author: loggedInUser.name,
         body: comment,
         votes: 0,
         created_at: new Date(),
@@ -29,7 +32,7 @@ export const PostComment = ({ setComments }) => {
       setError(null);
       setIsLoading(true);
       postComment(articleId, {
-        username: user.email,
+        username: loggedInUser.email,
         body: comment,
       })
         .then((comment) => {
@@ -41,7 +44,7 @@ export const PostComment = ({ setComments }) => {
           setError({ code, message });
           setIsLoading(false);
         });
-    }
+    
   };
 
   return (
