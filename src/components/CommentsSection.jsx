@@ -4,6 +4,7 @@ import { PostComment } from "./PostComment";
 
 export const CommentsSection = () => {
   const [comments, setComments] = useState();
+ 
   return (
     <div className="lg:w-5/12 lg:mt-16">
       <PostComment setComments={setComments} />

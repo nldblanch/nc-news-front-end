@@ -23,11 +23,11 @@ export const getArticleById = (id) => {
   // })
 }
 
-export const getArticleComments = (id) => {
+export const getArticleComments = (id, p = 1) => {
   return apiClient
-  .get(`/articles/${id}/comments`)
+  .get(`/articles/${id}/comments`, {params: {p}})
   .then(({data}) => {
-    return data.comments
+    return data
   })
 }
 
