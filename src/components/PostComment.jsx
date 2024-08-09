@@ -11,7 +11,7 @@ export const PostComment = ({ setComments }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [fakeComment, setFakeComment] = useState();
   const [error, setError] = useState(null);
-
+  
   // const { loggedInUser } = useContext(UserContext);
   const handleSubmit = (event) => {
     const user = netlifyIdentity.currentUser();
