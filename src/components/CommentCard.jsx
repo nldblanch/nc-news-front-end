@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TrashCanRegular from "../assets/trash-can-regular.svg";
 import TrashCanSolid from "../assets/trash-can-solid.svg";
 import netlifyIdentity from "netlify-identity-widget";
-import { deleteComment } from "../api";
+import { deleteComment, getUserByUsername } from "../api";
 import { FakeCommentCard } from "./FakeCommentCard";
 import { ErrorComponent } from "./ErrorComponent";
 
@@ -12,8 +12,14 @@ export const CommentCard = ({ comment }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const user = netlifyIdentity.currentUser();
-
+  const [commentAuthor, setCommentAuthor] = useState()
   const loggedInUser = user === null ? "" : user.user_metadata.full_name;
+  useEffect(() => {
+    getUserByUsername(comment.author)
+    .then((user) => {
+      setCommentAuthor(user.name)
+    })
+  }, [])
   const hover = () => {
     setHoverOnDelete(TrashCanSolid);
   };
@@ -44,7 +50,7 @@ export const CommentCard = ({ comment }) => {
     return (
       <div className="outline outline-1 outline-slate-200 mx-2 my-4 p-2 shadow-lg relative z-0">
         <div className="flex justify-between">
-          <h5 className="text-lg font-medium">{comment.author}</h5>
+          <h5 className="text-lg font-medium">{commentAuthor}</h5>
           <p>on {new Date(`${comment.created_at}`).toDateString()}</p>
         </div>
         <p className="text-left">{comment.body}</p>

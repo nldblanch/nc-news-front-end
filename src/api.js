@@ -68,10 +68,10 @@ export const postUser = (user) => {
   })
 }
 
-export const getUsers = () => {
+export const getUserByUsername = (username) => {
   return apiClient
-  .get("/users")
+  .get(`/users/${username}`)
   .then(({data}) => {
-    return data.users
+    return data.user
   })
 }
