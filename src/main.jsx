@@ -8,7 +8,7 @@ import { UserProvider } from "./contexts/User.jsx";
 import netlifyIdentity from "netlify-identity-widget";
 
 window.netlifyIdentity = netlifyIdentity;
-netlifyIdentity.init({ namePlaceholder: "Username" });
+netlifyIdentity.init();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

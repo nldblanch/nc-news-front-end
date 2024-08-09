@@ -6,8 +6,13 @@ import { Article } from "./pages/Article";
 import { ArticleProvider } from "./contexts/ArticleContext";
 import { NotFoundPage } from "./pages/NotFoundPage";
 import { PostArticlePage } from "./pages/PostArticlePage";
-
+import netlifyIdentity from 'netlify-identity-widget';
+import { postUser } from "./api";
 function App() {
+  netlifyIdentity.on("login", (user) => {
+    postUser({username: user.email, name: user.user_metadata.full_name})
+
+  })
   return (
     <>
       <Header />
