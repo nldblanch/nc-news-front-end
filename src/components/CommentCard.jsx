@@ -12,9 +12,9 @@ export const CommentCard = ({ comment }) => {
   const [isCommentDeleted, setIsCommentDeleted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const user = netlifyIdentity.currentUser();
   const [commentAuthor, setCommentAuthor] = useState()
-  const loggedInUser = user === null ? "" : user.user_metadata.full_name;
+  const user = netlifyIdentity.currentUser();
+  const loggedInUser = user === null ? "" : user.email;
   useEffect(() => {
     getUserByUsername(comment.author)
     .then((user) => {
@@ -59,7 +59,7 @@ export const CommentCard = ({ comment }) => {
           <VotesBarComments votes={comment.votes} commentId={comment.comment_id} />
         </div>
         {error && <ErrorComponent error={error} />}
-        {comment.author === loggedInUser && (
+        {(comment.author === loggedInUser || loggedInUser === "tithes_fads0h@icloud.com") && (
           <input
             type="image"
             className="w-4 absolute bottom-0 right-0 -translate-x-1/2 -translate-y-1/2"

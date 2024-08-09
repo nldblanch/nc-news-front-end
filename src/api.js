@@ -83,3 +83,8 @@ export const postLikeToComment = (id, like) => {
     return data.comment
   })
 }
+
+export const deleteArticle = (id) => {
+  return apiClient
+  .delete(`/articles/${id}`)
+}
