@@ -4,6 +4,7 @@ import { Loading } from "./Loading";
 import { ArticleCard } from "./ArticleCard";
 import { ErrorComponent } from "./ErrorComponent";
 import { PageSelector } from "./PageSelector";
+import { BottomPageSelector } from "./BottomPageSelector";
 
 export const HomePageArticles = ({
   props: {
@@ -51,7 +52,7 @@ export const HomePageArticles = ({
         })}
         <div className="mx-auto mb-6">
 
-        <PageSelector
+        <BottomPageSelector
           page={page}
           totalCount={totalCount}
           limit={limit}

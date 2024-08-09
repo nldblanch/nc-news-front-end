@@ -1,19 +1,20 @@
 import { Link, useNavigate } from "react-router-dom";
 import netlifyIdentity from "netlify-identity-widget";
 import SquarePenSolid from "../assets/square-pen-solid.svg";
-export const Header = () => {
+
+export const Header = ({loggedInUser}) => {
   const navigate = useNavigate();
   const handleLogin = () => {
     netlifyIdentity.open();
   };
   const handlePost = () => {
-    const user = netlifyIdentity.currentUser();
-    if (!user) {
+    if (!loggedInUser) {
       netlifyIdentity.open();
     } else {
       navigate("/post");
     }
   };
+  
   return (
     <header className=" w-full h-36 fixed top-0 z-40">
       <div className="w-full h-24 bg-red-600 flex flex-col justify-center">
@@ -56,8 +57,10 @@ export const Header = () => {
             data-netlify-identity-button
             onClick={handleLogin}
           >
-            Login
+            {!loggedInUser && <div className="flex"><span>Login</span>
             <span className="hidden md:block">&nbsp;with Netlify Identity</span>
+            </div>}
+            {loggedInUser && <div>{loggedInUser}</div>}
           </div>
         </ul>
       </nav>
