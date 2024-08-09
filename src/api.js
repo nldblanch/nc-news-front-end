@@ -59,3 +59,19 @@ export const postArticle = (article) => {
     return data.article
   })
 }
+
+export const postUser = (user) => {
+  return apiClient
+  .post("/users", user)
+  .then(({data}) => {
+    return data.user
+  })
+}
+
+export const getUsers = () => {
+  return apiClient
+  .get("/users")
+  .then(({data}) => {
+    return data.users
+  })
+}
