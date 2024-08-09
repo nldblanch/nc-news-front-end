@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-import "../css/Home.css";
 import { useSearchParams } from "react-router-dom";
 import { HomePageArticles } from "../components/HomePageArticles";
 import { PageSelector } from "../components/PageSelector";
@@ -33,7 +32,12 @@ export const Home = () => {
     <>
       <div className="mt-36 w-dvw sm:px-4">
         <h2 className="text-center sm:text-left text-2xl sm:text-3xl lg:text-4xl font-medium mb-4">
-          Showing {totalCount} articles {topic && <span>from <strong>{topic}</strong></span>}
+          Showing {totalCount} articles{" "}
+          {topic && (
+            <span>
+              from <strong>{topic}</strong>
+            </span>
+          )}
         </h2>
         <form className="flex flex-col text-center w-full sm:flex-row sm:justify-between">
           <div>
@@ -64,9 +68,8 @@ export const Home = () => {
           </div>
         </form>
       </div>
-     
-        <HomePageArticles props={homePageProps} />
-      
+
+      <HomePageArticles props={homePageProps} />
     </>
   );
 };

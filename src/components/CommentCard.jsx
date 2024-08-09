@@ -1,20 +1,19 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import TrashCanRegular from "../assets/trash-can-regular.svg";
 import TrashCanSolid from "../assets/trash-can-solid.svg";
-import "../css/CommentCard.css";
-import netlifyIdentity from 'netlify-identity-widget';
+import netlifyIdentity from "netlify-identity-widget";
 import { deleteComment } from "../api";
 import { FakeCommentCard } from "./FakeCommentCard";
-import {ErrorComponent} from "./ErrorComponent"
+import { ErrorComponent } from "./ErrorComponent";
 
 export const CommentCard = ({ comment }) => {
   const [hoverOnDelete, setHoverOnDelete] = useState(TrashCanRegular);
-  const [isCommentDeleted, setIsCommentDeleted] = useState(false)
+  const [isCommentDeleted, setIsCommentDeleted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null)
+  const [error, setError] = useState(null);
   const user = netlifyIdentity.currentUser();
 
-  const loggedInUser = user === null ? "" : user.user_metadata.full_name
+  const loggedInUser = user === null ? "" : user.user_metadata.full_name;
   const hover = () => {
     setHoverOnDelete(TrashCanSolid);
   };
@@ -23,19 +22,26 @@ export const CommentCard = ({ comment }) => {
   };
   const handleDelete = () => {
     setIsLoading(true);
-    setError(null)
-    deleteComment(comment.comment_id).then(() => {
-      setIsCommentDeleted(true)
-      setIsLoading(false);
-    })
-    .catch(({code, message}) => {
-      setError({code, message})
-      setIsLoading(false)
-    });
+    setError(null);
+    deleteComment(comment.comment_id)
+      .then(() => {
+        setIsCommentDeleted(true);
+        setIsLoading(false);
+      })
+      .catch(({ code, message }) => {
+        setError({ code, message });
+        setIsLoading(false);
+      });
   };
   if (isLoading) return <FakeCommentCard comment={comment} />;
-  else if (isCommentDeleted) return <h5 className="text-left m-2"><em>Comment Deleted</em></h5>
-  else return (
+  else if (isCommentDeleted)
+    return (
+      <h5 className="text-left m-2">
+        <em>Comment Deleted</em>
+      </h5>
+    );
+  else
+    return (
       <div className="outline outline-1 outline-slate-200 mx-2 my-4 p-2 shadow-lg relative z-0">
         <div className="flex justify-between">
           <h5 className="text-lg font-medium">{comment.author}</h5>
@@ -59,4 +65,3 @@ export const CommentCard = ({ comment }) => {
       </div>
     );
 };
-

@@ -2,7 +2,6 @@ import ThumbsUpRegular from "../assets/thumbs-up-regular.svg";
 import ThumbsDownRegular from "../assets/thumbs-down-regular.svg";
 import ThumbsUpSolid from "../assets/thumbs-up-solid.svg";
 import ThumbsDownSolid from "../assets/thumbs-down-solid.svg";
-import "../css/VotesBar.css";
 import { useContext, useState } from "react";
 import { postLike } from "../api";
 import { ArticleContext } from "../contexts/ArticleContext";
@@ -12,10 +11,10 @@ export const VotesBar = ({ votes }) => {
   const [thumbsDownChecked, setThumbsDownChecked] = useState(false);
   const [incrementedVotes, setIncrementedVotes] = useState(0);
   const [error, setError] = useState(null);
-  const [initialState, setInitialState] = useState()
+  const [initialState, setInitialState] = useState();
   const handleThumbsUp = () => {
-    setInitialState({like: thumbsUpChecked, dislike: thumbsDownChecked})
-    setError(null)
+    setInitialState({ like: thumbsUpChecked, dislike: thumbsDownChecked });
+    setError(null);
     setThumbsUpChecked((prev) => !prev);
     if (thumbsDownChecked) {
       setThumbsDownChecked(false);
@@ -27,8 +26,8 @@ export const VotesBar = ({ votes }) => {
     }
   };
   const handleThumbsDown = () => {
-    setInitialState({like: thumbsUpChecked, dislike: thumbsDownChecked})
-    setError(null)
+    setInitialState({ like: thumbsUpChecked, dislike: thumbsDownChecked });
+    setError(null);
     setThumbsDownChecked((prev) => !prev);
     if (thumbsUpChecked) {
       setThumbsUpChecked(false);
@@ -43,10 +42,9 @@ export const VotesBar = ({ votes }) => {
   const incrementVotes = (increment) => {
     setIncrementedVotes((votes) => votes + increment);
     setError(null);
-    postLike(articleId, increment)
-    .catch((err) => {
-      setThumbsUpChecked(initialState.like)
-      setThumbsDownChecked(initialState.dislike)
+    postLike(articleId, increment).catch((err) => {
+      setThumbsUpChecked(initialState.like);
+      setThumbsDownChecked(initialState.dislike);
       setIncrementedVotes((currentVotes) => currentVotes - like);
       setError(err);
     });

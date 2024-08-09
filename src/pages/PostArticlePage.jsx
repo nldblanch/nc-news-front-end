@@ -1,5 +1,4 @@
 import netlifyIdentity from "netlify-identity-widget";
-import "../css/PostArticlePage.css";
 import { postArticle } from "../api";
 import { useState } from "react";
 import { Loading } from "../components/Loading";
@@ -28,31 +27,60 @@ export const PostArticlePage = () => {
   };
   return (
     <main className="pt-36 h-dvh">
-      <form className="flex flex-col px-2 py-6 h-full items-center mx-auto max-w-3xl" onSubmit={handleSubmit} id="upload-article" >
-      <h2 className="text-2xl font-medium">Upload an article</h2>
-        <label className="mt-2 text-xl" htmlFor="post-article-title">Title</label>
-        <input className="shadow-lg outline outline-1 outline-slate-200 text-center w-full" id="post-article-title" required />
-        <label className="mt-6 text-xl" htmlFor="post-article-topic">Topic</label>
-        <select className="shadow-lg outline outline-1 outline-slate-200 text-center w-full" id="post-article-topic" required>
+      <form
+        className="flex flex-col px-2 py-6 h-full items-center mx-auto max-w-3xl"
+        onSubmit={handleSubmit}
+        id="upload-article"
+      >
+        <h2 className="text-2xl font-medium">Upload an article</h2>
+        <label className="mt-2 text-xl" htmlFor="post-article-title">
+          Title
+        </label>
+        <input
+          className="shadow-lg outline outline-1 outline-slate-200 text-center w-full"
+          id="post-article-title"
+          required
+        />
+        <label className="mt-6 text-xl" htmlFor="post-article-topic">
+          Topic
+        </label>
+        <select
+          className="shadow-lg outline outline-1 outline-slate-200 text-center w-full"
+          id="post-article-topic"
+          required
+        >
           <option>coding</option>
           <option>football</option>
           <option>cooking</option>
         </select>
-        <label className="mt-6 text-xl " htmlFor="post-article-image">Image</label>
+        <label className="mt-6 text-xl " htmlFor="post-article-image">
+          Image
+        </label>
         {/* <input id="post-article-image" type="file" /> */}
-        <input className="shadow-lg outline outline-1 outline-slate-200 text-center w-full" id="post-article-image" type="url" required />
-        <label className="mt-6 text-xl" htmlFor="post-article-body">Body</label>
+        <input
+          className="shadow-lg outline outline-1 outline-slate-200 text-center w-full"
+          id="post-article-image"
+          type="url"
+          required
+        />
+        <label className="mt-6 text-xl" htmlFor="post-article-body">
+          Body
+        </label>
         <textarea
-        className="shadow-lg outline outline-1 outline-slate-200 text-center w-full grow"
+          className="shadow-lg outline outline-1 outline-slate-200 text-center w-full grow"
           id="post-article-body"
           required
         ></textarea>
-        <button className="bg-slate-200 active:bg-slate-300 w-fit mt-4 py-2 px-4 rounded-3xl" type="submit" id="post-article-submit">
+        <button
+          className="bg-slate-200 active:bg-slate-300 w-fit mt-4 py-2 px-4 rounded-3xl"
+          type="submit"
+          id="post-article-submit"
+        >
           Submit
         </button>
       </form>
       {isLoading && (
-        <div >
+        <div>
           <Loading />
         </div>
       )}
