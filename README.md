@@ -3,7 +3,6 @@
 ## View this project online
 You can view the hosted website [here](https://nathans-nc-news.netlify.app)! It's hosted for free, so please be patient if it takes slightly longer to load.
 
-
 ## Description
 Northcoders News is a Reddit clone created in JavaScript. It's made using React and receives data from an api that I built. That can be viewed on [GitHub](https://github.com/nldblanch/NC-News) with full instructions on setting it up on your own machine.
 
@@ -57,17 +56,9 @@ Deploy your project and wait for it to finish building. That's it! You're done. 
 
 ## Netlify Identity
 
-You may wish to setup your own user login system - the current database only has 6 users and posting articles or comments requires the user to exist already. I have not setup any way to add new users, but have used existing ones instead. 
+You may wish to setup your own user login system - the current database has several users and a sign up system using Netlify Identity. Alternatively, posting a comment without signing up or logging in will show up as an anonymous user, but you cannot post an article anonymously. 
 
-I used netlifyIdentity to authorise users - if you wish to sign up as one of the users so that you can post articles and comments, click the button in the top right corner that says ```Login with Netlify Identity```. You can choose these usernames from the database:
-- jessjelly
-- weegembump
-- cooljmessy
-- happyamy2016
-- grumpy19
-- tickle122
-
-_This is case sensitive so be sure to match the username character for character._
+Click the button in the top right corner that says ```Login with Netlify Identity```. 
 
 Verify your email address and you will be able to comment on articles and post your own! You can manage users from the Netlify integration.
 
